@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
 import { getPersonListQuery } from '../queries/queries';
 import { Person } from './Person';
 import PersonDetails from './PersonDetails';
-const uuidv1 = require('uuid/v1');
 
 class PersonList extends Component {
 	constructor(props) {
@@ -14,6 +12,7 @@ class PersonList extends Component {
 			matchingPlanet: null,
 			matchingSpecies: null
 		};
+		this.validateSelection = this.validateSelection.bind(this);
 	}
 	displayPersonList({ personList }) {
 		return personList.map(({ name, gender, height, homeworld, species }, index) => {
@@ -38,6 +37,20 @@ class PersonList extends Component {
 			);
 		});
 	}
+
+	validateSelection() {
+		if (this.state.selected) {
+			return (
+				<PersonDetails
+					personId={this.state.selected}
+					planet={this.state.matchingPlanet}
+					species={this.state.matchingSpecies}
+				/>
+			);
+		} else {
+			return <p>No Person Selected</p>;
+		}
+	}
 	render() {
 		const { loading, error, personList } = this.props;
 		if (loading) {
@@ -49,11 +62,7 @@ class PersonList extends Component {
 		return (
 			<div>
 				<ul className="test">{this.displayPersonList({ personList })}</ul>
-				<PersonDetails
-					personId={this.state.selected}
-					planet={this.state.matchingPlanet}
-					species={this.state.matchingSpecies}
-				/>
+				{this.validateSelection()}
 			</div>
 		);
 	}
