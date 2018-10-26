@@ -1,7 +1,4 @@
-import React, { Component } from 'react';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
-import { getPersonInfoQuery } from '../queries/queries';
+import React from 'react';
 
 export const Person = ({ name, gender, height }) => (
 	<div>

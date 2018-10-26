@@ -4,7 +4,13 @@ const getPersonListQuery = gql`
 	{
 		personList @rest(type: "PersonList", path: "people") {
 			count
-			results
+			results @type(name: "Person") {
+				name
+				gender
+				height
+				homeworld
+				species
+			}
 		}
 	}
 `;
@@ -15,15 +21,15 @@ const getPersonListQuery = gql`
  */
 
 const getPersonInfoQuery = gql`
-	query($id: ID, $planet: String) {
-		person(id: $id) @rest(type: "Person", path: "people/:id/") {
+	query($id: ID, $planet: String, $species: String) {
+		person(id: $id) @rest(type: "Person", path: "people/{args.id}/") {
 			name
 			gender
-			home(planet: $planet) @rest(type: "Home", path: "planets/:planet/") {
+			home(planet: $planet) @rest(type: "Home", path: "planets/{args.planet}/") {
 				name
 				population
 			}
-			species(species: $species) @rest(type: "Species", path: "species/:species/") {
+			species(species: $species) @rest(type: "Species", path: "species/{args.species}/") {
 				name
 				classification
 			}

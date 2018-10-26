@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
 import { getPersonInfoQuery } from '../queries/queries';
 
 class PersonDetails extends Component {
@@ -12,12 +11,12 @@ class PersonDetails extends Component {
 			if (person) {
 				return (
 					<div>
-						<h2>{person.name}</h2>
-						<p>{person.gender}</p>
-						<p>{person.home.name}</p>
-						<p>{person.home.population}</p>
-						<p>{person.species.name}</p>
-						<p>{person.species.classification}</p>
+						<h2>Name: {person.name}</h2>
+						<p>Gender: {person.gender}</p>
+						<p>Planet: {person.home.name}</p>
+						<p>Population: {person.home.population}</p>
+						<p>Species: {person.species.name}</p>
+						<p>Classification: {person.species.classification}</p>
 					</div>
 				);
 			} else {

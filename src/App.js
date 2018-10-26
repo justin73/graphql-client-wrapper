@@ -3,9 +3,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloProvider } from 'react-apollo';
 import { RestLink } from 'apollo-link-rest';
-import Person from './components/Person';
 import PersonList from './components/PersonList';
-import PersonDetails from './components/PersonDetails';
 
 // create a RestLink for the REST API
 const restLink = new RestLink({
