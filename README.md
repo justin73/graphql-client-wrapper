@@ -1,8 +1,7 @@
-<<<<<<< HEAD
-## Graphql Client Wrapper
 
+# Graphql Client Wrapper
 This repo demonstrate how to use Apollo Rest Link to wrap Rest API and use to the graphql client with React
-=======
+
 ## REST API, Apollo GraphQL client with REST Adapter
 You can start using Apollo Client without switching your server to GraphQL. This is possible because of a library called Apollo Link REST. Using this library allows you to get the power of Apollo Client without making any change to your REST API.
 
@@ -20,7 +19,6 @@ If changing your client is faster than modifying your server, then this is a goo
 
   2.More HTTP calls than GraphQL
 
-
 ## apollo-link-rest
 
 Calling REST APIs from a GraphQL client opens the benefits GraphQL for more people, whether:
@@ -32,7 +30,6 @@ Calling REST APIs from a GraphQL client opens the benefits GraphQL for more peop
   3. You have an existing codebase, but you’re looking to evaluate whether GraphQL can work for your needs.
 
   4. You have a large codebase, and the GraphQL migration is happening on the backend, but you want to use GraphQL now without waiting!
-
 
 ## Multiple endpoints
 If you want to be able to use multiple endpoints, you should create your link like so:
@@ -67,4 +64,3 @@ If you have a default endpoint, you can create your link like so:
   });
   ```
 Then if you do not specify an endpoint in your query the default endpoint (the one you specify in the uri option.) will be used.
->>>>>>> 104ce4f2a2577a2503d344254834912073f1d120
